@@ -74,7 +74,7 @@ mattorch.save = function(path,vars)
                     xlua.error('please provide a path','mattorch.save',help.save)
                  end
                  if type(vars) == 'userdata' and torch.typename(vars) == 'torch.DoubleTensor' then
-                    local tensor = torch.Tensor():resizeAs(vars):copy(vars)
+                    local tensor = torch.DoubleTensor():resizeAs(vars):copy(vars)
                     libmattorch.saveTensor(path,tensor)
 
                  elseif type(vars) == 'table' then
